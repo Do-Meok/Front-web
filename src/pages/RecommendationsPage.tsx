@@ -56,7 +56,7 @@ export function RecommendationsPage() {
           {mutation.data.recipes.length === 0 ? (
             <EmptyState message="추천할 만한 레시피를 찾지 못했어요. 재료를 더 추가해보세요." />
           ) : (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {mutation.data.recipes.map((recipe, index) => (
                 <RecipeCard key={`${recipe.board_name}-${recipe.author_name}-${index}`} recipe={recipe} />
               ))}

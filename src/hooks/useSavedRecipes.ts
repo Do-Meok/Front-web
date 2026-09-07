@@ -52,3 +52,11 @@ export function useDeleteSavedRecipeMutation(sourceId?: string) {
     },
   })
 }
+
+export function useDeleteSavedRecipesMutation() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (ids: string[]) => Promise.all(ids.map((id) => deleteSavedRecipe(id))),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: SAVED_LIST_KEY }),
+  })
+}
