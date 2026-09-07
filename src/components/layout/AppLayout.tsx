@@ -12,7 +12,7 @@ export function AppLayout() {
     <div className="min-h-screen bg-gray-50">
       <header className="border-b border-gray-200 bg-white">
         <nav className="mx-auto flex max-w-4xl items-center gap-1 px-4 py-3">
-          <span className="mr-4 text-lg font-bold text-orange-500">두먹</span>
+          <span className="mr-4 text-lg font-bold text-orange-500">두고먹고</span>
           {navItems.map((item) => (
             <NavLink
               key={item.to}
