@@ -115,3 +115,8 @@ export interface SavedRecipeStatusResponse {
   saved: boolean
   id: string | null
 }
+
+export interface SavedRecipeOwnedIngredient {
+  id: number
+  ingredient_name: string
+}

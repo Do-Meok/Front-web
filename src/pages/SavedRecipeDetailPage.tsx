@@ -4,6 +4,7 @@ import { Button } from '../components/common/Button'
 import { ErrorBanner } from '../components/common/ErrorBanner'
 import { Spinner } from '../components/common/Spinner'
 import { RecipeContent, type RecipeContentProps } from '../components/recipes/RecipeContent'
+import { UsedIngredientsChecklist } from '../components/recipes/UsedIngredientsChecklist'
 import { useDeleteSavedRecipeMutation, useSavedRecipeDetailQuery } from '../hooks/useSavedRecipes'
 import { getErrorMessage } from '../lib/errors'
 import type { RecipeIngredient, RecipeStep } from '../types/api'
@@ -58,6 +59,7 @@ export function SavedRecipeDetailPage() {
         </Button>
       </div>
       <RecipeContent {...normalizeSnapshot(data.snapshot, data.recipe_name)} />
+      {recipeId && <UsedIngredientsChecklist key={recipeId} recipeId={recipeId} />}
     </div>
   )
 }

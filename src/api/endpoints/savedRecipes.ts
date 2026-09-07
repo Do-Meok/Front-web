@@ -1,5 +1,10 @@
 import { apiClient } from '../client'
-import type { SavedRecipeDetailResponse, SavedRecipeListItem, SavedRecipeStatusResponse } from '../../types/api'
+import type {
+  SavedRecipeDetailResponse,
+  SavedRecipeListItem,
+  SavedRecipeOwnedIngredient,
+  SavedRecipeStatusResponse,
+} from '../../types/api'
 
 export function toSourceId(boardName: string, authorName: string): string {
   return `${boardName}|${authorName}`
@@ -27,4 +32,10 @@ export function saveRecipe(sourceId: string) {
 
 export function deleteSavedRecipe(id: string) {
   return apiClient.delete(`/recipes/saved/${id}`)
+}
+
+export function getSavedRecipeOwnedIngredients(id: string) {
+  return apiClient
+    .get<SavedRecipeOwnedIngredient[]>(`/recipes/saved/${id}/owned-ingredients`)
+    .then((r) => r.data)
 }
